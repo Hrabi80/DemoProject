@@ -20,11 +20,12 @@ class MyController extends AbstractController {
     }
     
     /**
-     * @Route("/secondo/{slug}")
+     * @Route("/Use-twig-example/{slug}")
      */
     
     public function secondpage($slug)
     {
+        
         $comments=['Faire un commentaire','Noter ce produit','ask admin'];
         return $this->render('/Products/show.html.twig',['title'=> ucwords(str_replace('-', ' ', $slug)),
                                                          'comments' =>$comments,       ]);
