@@ -3,10 +3,11 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
+use \Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 
-class MyController {
+class MyController extends AbstractController {
     
     
     /**
@@ -17,12 +18,15 @@ class MyController {
         return new Response('My first Symfony page !');
         
     }
+    
     /**
      * @Route("/secondo/{slug}")
      */
     
     public function secondpage($slug)
     {
-        return new Response(sprintf('my second one chill ! our value slug is : "%s"',$slug));
+        $comments=['Faire un commentaire','Noter ce produit','ask admin'];
+        return $this->render('/Products/show.html.twig',['title'=> ucwords(str_replace('-', ' ', $slug)),
+                                                         'comments' =>$comments,       ]);
     }
 }
