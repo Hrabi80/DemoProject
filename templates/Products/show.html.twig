@@ -1,25 +1,26 @@
 {% extends 'base.html.twig' %}
- {% block body %}
-     {{ dump() }}
-<h1>{{title}}</h1>
-   <div>
-       <h3>Kosksi</h3>
-       <p>10 dt per Unit. Unit has 10 kg, done from the lady ..... fldfmdfgrgkflvc</p>
-       <br>
-        <h3>hrisa 3arbi</h3>
-       <p>10 dt per unit klkgpqbbgoerfgkerigfgfdvckldfvfgggfgdfjgflgjflgkqdfklgdf,gkldfjgdfjkglfdjjgq</p>
-        <h3>molokhiya</h3>
-       <p>flgjq klkgpq*goerfgkerigfgfdvckldfv;:dfjgflgjflgkqdfklgdf,gkldfjgdfjkglfdjjgq</p>
-        <h3>mtabka</h3>
-       <p>flgjq klkgpq*goerfgkerigfgfdvckldffdgqdfdfjgflgjflgkqdfklgdf,gkldfjgdfjkglfdjjgq</p>
-       <h2>User interaction in the web site  </h2> <h3>prducts found({{ comments|length }})</h3>
-       <ul>
-       {% for comment in comments %} 
-           <li>
-               {{ comment }}
-           </li>    
-       {% endfor %}
-       </ul>   
-   </div>
-   {% endblock %}
+
+
+{% block body %}
+
+    <table class="table text-center">
+        <tr>
+            <th class="active text-center">name</th>
+            <th class="active text-center">price</th>
+            <th class="active text-center">description</th>
+        </tr>
+
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>
+                    <a href="#">
+                        {{ product.price }}
+                    </a>
+                </td>
+                <td>{{ product.descr }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
    

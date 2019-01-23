@@ -16,15 +16,17 @@ class Product
      */
     private $id;
     /**
-     *
-     * @ORM\Column(type="integer")
-     */
-    private $id_sel;
-    /**
      * @var seller
      *
      * @ORM\ManyToOne(targetEntity="Seller", inversedBy="Product")
      * @ORM\JoinColumn(name="seller_id", referencedColumnName="id", nullable=false)
+     */
+    
+    private $seller_id;
+    
+    /**
+     *
+     * @ORM\Column(type="integer")
      */
     private $unit_instock;
     /**
@@ -77,7 +79,7 @@ class Product
         return $this->id;
     }
     function getId_sel() {
-        return $this->id_sel;
+        return $this->seller_id;
     }
 
     function getUnit_instock() {
@@ -109,7 +111,7 @@ class Product
     }
 
     function setId_sel($id_sel) {
-        $this->id_sel = $id_sel;
+        $this->seller_id = $id_sel;
     }
 
     function setUnit_instock($unit_instock) {

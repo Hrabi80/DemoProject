@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Product;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use \Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -39,10 +40,10 @@ class MyController extends AbstractController {
      */
     public function list() : Response
     {
-        $products = $this->getDoctrine()->getRepository(App\Entity\Product::class)->findAll();
+        $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
 
-        return $this->render('product/list.html.twig', [
-            'product' => $products,
+        return $this->render('Products/show.html.twig', [
+            'products' => $products,
         ]);
     }
 }
