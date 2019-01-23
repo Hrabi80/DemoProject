@@ -30,4 +30,20 @@ class MyController extends AbstractController {
         return $this->render('/Products/show.html.twig',['title'=> ucwords(str_replace('-', ' ', $slug)),
                                                          'comments' =>$comments,       ]);
     }
+     /**
+     * Lists all job entities.
+     *
+     * @Route("/ProductList")
+     *
+     * @return Response
+     */
+    public function list() : Response
+    {
+        $products = $this->getDoctrine()->getRepository(App\Entity\Product::class)->findAll();
+
+        return $this->render('product/list.html.twig', [
+            'product' => $products,
+        ]);
+    }
 }
+
